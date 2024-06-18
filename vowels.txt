@@ -1,0 +1,40 @@
+%{
+#include<stdio.h>
+int v=0;
+int c=0
+%}
+%%
+[\t\n]+;
+[aeiouAEIOU]{V++;}
+[^aeiouAEIOU]{C++;}
+%%
+int main()
+{
+Printf("Enter the input string:\n");
+yylex();
+Printf("no of vowels:%d\n",v);
+Printf("no.of.consonants:%d\n",c);
+
+
+
+
+
+
+%{
+	int vow_count=0;
+	int const_count =0;
+%}
+
+%%
+[aeiouAEIOU] {vow_count++;}
+[a-zA-Z] {const_count++;}
+%%
+int yywrap(){}
+int main()
+{
+	printf("Enter the string of vowels and consonants:");
+	yylex();
+	printf("Number of vowels are: %d\n", vow_count);
+	printf("Number of consonants are: %d\n", const_count);
+	return 0;
+} 
