@@ -1,0 +1,16 @@
+%{
+#include<stdio.h>
+%}
+%%
+[a-zA-Z0-9_]+(@[a-z]+)(.[a-z]+)
+{
+print("%s is a valid Email", yytext);}
+%%
+int main()
+{
+printf("Enter the email:");
+yylex();
+int yywrap
+{
+return 1;
+}
